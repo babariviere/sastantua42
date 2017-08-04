@@ -6,3 +6,5 @@ echo "==> Testing sastantua 1"
 ./sastantua 1
 echo "==> Testing sastantua 5"
 ./sastantua 5
+
+rm sastantua
