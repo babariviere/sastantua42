@@ -6,7 +6,11 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2017/08/05 00:57:08 by smokhtar         ###   ########.fr       */
+=======
+/*   Updated: 2017/08/05 00:54:47 by briviere         ###   ########.fr       */
+>>>>>>> 4216f886bb0c153a7c5b0f6d1e22439aa3067d38
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +39,23 @@ void	ft_print_line(int len)
 	ft_putchar('\\');
 }
 
-void	ft_len_base(int size)
+int		ft_len_base(int size)
 {
-	
+	int len;
+	int etage;
+	int gap;
+
+	len = 7;
+	etage = 2;
+	gap = 3;
+	while (etage <= size)
+	{
+		len += (etage + 1 + gap)* 2;
+		if (etage % 2 == 1)
+			gap++;
+		etage++;
+	}
+	return (len);
 }
 
 int		ft_nbr_line(int size)
@@ -63,6 +81,9 @@ void	sastantua(int size)
 	len = 3 + size / 2;
 	nbr = ft_nbr_line(size);
 	printf("%d", nbr);
+
+	len = ft_len_base(size);
+	printf("%d\n", len);
 }
 
 // Only for debug
