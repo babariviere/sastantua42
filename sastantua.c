@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-/*   Updated: 2017/08/05 00:26:07 by briviere         ###   ########.fr       */
+/*   Updated: 2017/08/05 00:57:08 by smokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,32 @@ void	ft_print_line(int len)
 
 void	ft_len_base(int size)
 {
+	
+}
 
+int		ft_nbr_line(int size)
+{
+	int nb;
+	int i;
+
+	i = 0;
+	nb = 0;
+	while ( i < size)
+	{
+		nb = nb + (3 + (i));
+		i++;
+	}
+	return (nb);
 }
 
 void	sastantua(int size)
 {
 	int len;
+	int nbr;
 
 	len = 3 + size / 2;
-	printf("%d", len);
+	nbr = ft_nbr_line(size);
+	printf("%d", nbr);
 }
 
 // Only for debug
