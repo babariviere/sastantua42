@@ -6,11 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/08/05 00:57:08 by smokhtar         ###   ########.fr       */
-=======
-/*   Updated: 2017/08/05 00:54:47 by briviere         ###   ########.fr       */
->>>>>>> 4216f886bb0c153a7c5b0f6d1e22439aa3067d38
+/*   Updated: 2017/08/05 01:27:31 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +34,42 @@ void	ft_print_line(int len)
 	ft_print_multiple('*', len);
 	ft_putchar('\\');
 }
+
+void	ft_print_etage(int etage, int len_base)
+{
+	int cur_line;
+	int gap;
+
+	cur_line = 0;
+	gap = 2 + (etage / 2);
+	while (cur_line < etage + 2)
+	{
+		ft_print_multiple(' ', (len_base / 2) - gap);
+		ft_putchar('/');
+		ft_print_multiple('*', cur_line + 0);
+		cur_line++;
+	}
+}
+
+void ft_print_total(int size,int len_base)
+{
+	int cur_line;
+	int nbr_line;
+	int gap;
+	int etage;
+
+	cur_line = 0;
+	etage = (cur_line - 3);
+	gap= 2 + (etage / 2);
+	while (cur_line < nbr_line)
+	{
+		ft_print_multiple(' ', (len_base /2) - cur_line );
+		ft_putchar('/');
+		ft_print_multiple('*', (1 + (2 * cur_line)));
+		ft_putchar('\\');
+	}
+}
+
 
 int		ft_len_base(int size)
 {
@@ -75,15 +107,17 @@ int		ft_nbr_line(int size)
 
 void	sastantua(int size)
 {
-	int len;
-	int nbr;
+	int len_base;
+	int nbr_line;
+	int cur_line;
 
-	len = 3 + size / 2;
-	nbr = ft_nbr_line(size);
-	printf("%d", nbr);
+	len_base = ft_len_base(size);
+	nbr_line = ft_nbr_line(size);
+	cur_line = 0;
+	while (cur_line < nbr_line)
+	{
 
-	len = ft_len_base(size);
-	printf("%d\n", len);
+	}
 }
 
 // Only for debug
@@ -94,7 +128,7 @@ int		main(int argc, char **argv)
 		printf("Usage: ./sastantua <size>\n");
 		return (1);
 	}
-	
+
 	int size = atoi(argv[1]);
 	sastantua(size);
 	return (0);
