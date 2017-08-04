@@ -6,12 +6,13 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-/*   Updated: 2017/08/04 22:49:35 by briviere         ###   ########.fr       */
+/*   Updated: 2017/08/04 23:10:19 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Only for debug
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 // Only for debug
