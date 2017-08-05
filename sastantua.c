@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-/*   Updated: 2017/08/05 01:27:31 by briviere         ###   ########.fr       */
+/*   Updated: 2017/08/05 04:00:37 by smokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,41 @@ void	ft_print_multiple(char c, int size)
 		ft_putchar(c);
 }
 
-void	ft_print_line(int len)
-{
-	ft_putchar('/');
-	ft_print_multiple('*', len);
-	ft_putchar('\\');
-}
+int ft_find_stage(int nbr_line, int gap[]}
+	int n;
+	int cur;
+	int nbr_gap;
 
-void	ft_print_etage(int etage, int len_base)
-{
-	int cur_line;
-	int gap;
-
-	cur_line = 0;
-	gap = 2 + (etage / 2);
-	while (cur_line < etage + 2)
+	n = 3;
+	cur = 1;
+	nbr_gap = 1;
+	while(cur < nbr_line - 3)
 	{
-		ft_print_multiple(' ', (len_base / 2) - gap);
-		ft_putchar('/');
-		ft_print_multiple('*', cur_line + 0);
-		cur_line++;
+		while (cur < n)
+		{
+			gap[cur- 1] = 2 + 2 * nbr_gap;
+			cur ++;
+		}
+		n = n + 1;
 	}
+	return (gap);
 }
 
-void ft_print_total(int size,int len_base)
+void ft_print_total(int size,int len_base,int nbr_line)
 {
 	int cur_line;
-	int nbr_line;
-	int gap;
 	int etage;
 
 	cur_line = 0;
 	etage = (cur_line - 3);
-	gap= 2 + (etage / 2);
 	while (cur_line < nbr_line)
 	{
 		ft_print_multiple(' ', (len_base /2) - cur_line );
 		ft_putchar('/');
-		ft_print_multiple('*', (1 + (2 * cur_line)));
+		ft_print_multiple('*', (1 + (2 * cur_line)+ gap[cur_line] ));
 		ft_putchar('\\');
+		ft_putchar('\n');
+		cur_line++;
 	}
 }
 
@@ -110,14 +106,13 @@ void	sastantua(int size)
 	int len_base;
 	int nbr_line;
 	int cur_line;
+	int gap[nbr_line = ft_nbr_line(size)]
 
 	len_base = ft_len_base(size);
 	nbr_line = ft_nbr_line(size);
 	cur_line = 0;
-	while (cur_line < nbr_line)
-	{
-
-	}
+	gap = ft_find_stage(nbr_line, gap
+	ft_print_total(size, len_base, nbr_line, gap);
 }
 
 // Only for debug
