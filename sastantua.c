@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-/*   Updated: 2017/08/05 04:00:37 by smokhtar         ###   ########.fr       */
+/*   Updated: 2017/08/05 08:54:44 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_print_multiple(char c, int size)
 		ft_putchar(c);
 }
 
-int ft_find_stage(int nbr_line, int gap[]}
+int ft_find_stage(int nbr_line, int gap[])
+{
 	int n;
 	int cur;
 	int nbr_gap;
@@ -48,7 +49,7 @@ int ft_find_stage(int nbr_line, int gap[]}
 	return (gap);
 }
 
-void ft_print_total(int size,int len_base,int nbr_line)
+void ft_print_total(int size,int len_base,int nbr_line, int gap[])
 {
 	int cur_line;
 	int etage;
@@ -59,7 +60,7 @@ void ft_print_total(int size,int len_base,int nbr_line)
 	{
 		ft_print_multiple(' ', (len_base /2) - cur_line );
 		ft_putchar('/');
-		ft_print_multiple('*', (1 + (2 * cur_line)+ gap[cur_line] ));
+		ft_print_multiple('*', (1 + (2 * cur_line) + gap[cur_line] ));
 		ft_putchar('\\');
 		ft_putchar('\n');
 		cur_line++;
@@ -106,12 +107,12 @@ void	sastantua(int size)
 	int len_base;
 	int nbr_line;
 	int cur_line;
-	int gap[nbr_line = ft_nbr_line(size)]
+	int gap[];
 
 	len_base = ft_len_base(size);
 	nbr_line = ft_nbr_line(size);
 	cur_line = 0;
-	gap = ft_find_stage(nbr_line, gap
+	gap = ft_find_stage(nbr_line, gap);
 	ft_print_total(size, len_base, nbr_line, gap);
 }
 
