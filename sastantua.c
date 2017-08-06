@@ -6,7 +6,7 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-/*   Updated: 2017/08/05 08:54:44 by briviere         ###   ########.fr       */
+/*   Updated: 2017/08/06 18:09:05 by smokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 // Only for debug
-int	ft_putchar(char c)
+int		ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (0);
@@ -28,7 +28,29 @@ void	ft_print_multiple(char c, int size)
 		ft_putchar(c);
 }
 
-int	ft_len_base(int size)
+void	ft_print_last_floor(int floor, int size, int *cur_len, int total)
+{
+	int taille;
+	int idx;
+
+	
+	idx = 0;
+	taille = size / 2 - 1;
+	printf("%d", taille);
+	while(0)
+	{
+		ft_print_multiple(' ', (total - *cur_len) / 4);
+		ft_putchar('/');
+		ft_print_multiple('*', (*cur_len - 2) / 2);
+		ft_print_multiple('|', 1 + ( size / 2));
+		ft_putchar('\\');
+		ft_putchar('\n');
+		idx += 1;
+		*cur_len += 2;
+	}
+}
+
+int		ft_len_base(int size)
 {
 	int len;
 	int floor;
@@ -54,16 +76,20 @@ void	ft_print_floor(int floor, int total_floor, int *cur_len, int total_len)
 
     size = floor + 2;
     idx = 1;
-    while (idx <= size)
+    if (floor == total_floor)
+	{
+		size = 3 - ( total_floor % 2);
+	}
+	while (idx <= size)
     {
-	ft_print_multiple(' ', (total_len - *cur_len) / 2);
-	ft_putchar('/');
-	ft_print_multiple('*', *cur_len - 2);
-	ft_putchar('\\');
-	ft_putchar('\n');
-	idx += 1;
-	*cur_len += 2;
-    }
+		ft_print_multiple(' ', (total_len - *cur_len) / 2);
+		ft_putchar('/');
+		ft_print_multiple('*', *cur_len - 2);
+		ft_putchar('\\');
+		ft_putchar('\n');
+		idx += 1;
+		*cur_len += 2;
+	}
 }
 
 void	sastantua(int size)
@@ -81,6 +107,7 @@ void	sastantua(int size)
 	    floor++;
 	    cur_len += 4 + 2 * ((floor - 2) / 2);
 	}
+	ft_print_last_floor(floor,size, &cur_len, total_len);
 }
 
 // Only for debug
