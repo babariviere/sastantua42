@@ -28,92 +28,60 @@ void	ft_print_multiple(char c, int size)
 		ft_putchar(c);
 }
 
-int ft_find_stage(int nbr_line, int gap[])
-{
-	int n;
-	int cur;
-	int nbr_gap;
-
-	n = 3;
-	cur = 1;
-	nbr_gap = 1;
-	while(cur < nbr_line - 3)
-	{
-		while (cur < n)
-		{
-			gap[cur- 1] = 2 + 2 * nbr_gap;
-			cur ++;
-		}
-		n = n + 1;
-	}
-	return (gap);
-}
-
-void ft_print_total(int size,int len_base,int nbr_line, int gap[])
-{
-	int cur_line;
-	int etage;
-
-	cur_line = 0;
-	etage = (cur_line - 3);
-	while (cur_line < nbr_line)
-	{
-		ft_print_multiple(' ', (len_base /2) - cur_line );
-		ft_putchar('/');
-		ft_print_multiple('*', (1 + (2 * cur_line) + gap[cur_line] ));
-		ft_putchar('\\');
-		ft_putchar('\n');
-		cur_line++;
-	}
-}
-
-
-int		ft_len_base(int size)
+int	ft_len_base(int size)
 {
 	int len;
-	int etage;
+	int floor;
 	int gap;
 
 	len = 7;
-	etage = 2;
+	floor = 2;
 	gap = 3;
-	while (etage <= size)
+	while (floor <= size)
 	{
-		len += (etage + 1 + gap)* 2;
-		if (etage % 2 == 1)
+		len += (floor + 1 + gap)* 2;
+		if (floor % 2 == 1)
 			gap++;
-		etage++;
+		floor++;
 	}
 	return (len);
 }
 
-int		ft_nbr_line(int size)
+void	ft_print_floor(int floor, int *cur_len, int total_len)
 {
-	int nb;
-	int i;
+    int size;
+    int idx;
 
-	i = 0;
-	nb = 0;
-	while ( i < size)
-	{
-		nb = nb + (3 + (i));
-		i++;
-	}
-	return (nb);
+    size = floor + 2;
+    idx = 1;
+    while (idx <= size)
+    {
+	ft_print_multiple(' ', (total_len - *cur_len) / 2);
+	ft_putchar('/');
+	ft_print_multiple('*', *cur_len - 2);
+	ft_putchar('\\');
+	ft_putchar('\n');
+	idx += 1;
+	*cur_len += 2;
+	printf("%d;", *cur_len);
+    }
 }
 
 void	sastantua(int size)
 {
-	int len_base;
-	int nbr_line;
-	int cur_line;
-	int gap[];
+	int floor;
+	int cur_len;
+	int total_len;
 
-	len_base = ft_len_base(size);
-	nbr_line = ft_nbr_line(size);
-	cur_line = 0;
-	gap = ft_find_stage(nbr_line, gap);
-	ft_print_total(size, len_base, nbr_line, gap);
+	total_len = ft_len_base(size);
+	cur_len = 3;
+	floor = 1;
+	while (floor <= size)
+	{
+	    ft_print_floor(floor, &cur_len, total_len);
+	    floor++;
+	    cur_len += 3 + (floor / 2);
+	}
 }
 
 // Only for debug
