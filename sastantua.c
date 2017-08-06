@@ -6,11 +6,11 @@
 /*   By: briviere <briviere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 22:38:53 by briviere          #+#    #+#             */
-/*   Updated: 2017/08/06 20:12:38 by briviere         ###   ########.fr       */
+/*   Updated: 2017/08/06 20:28:12 by briviere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_putchar(char c);
+void	ft_putchar(char c);
 
 void	ft_print_multiple(char c, int size)
 {
@@ -21,7 +21,7 @@ void	ft_print_multiple(char c, int size)
 		ft_putchar(c);
 }
 
-void	ft_print_door(int floor, int idx, int *cur_len, int total_len)
+void	ft_print_door(int floor, int idx, int *cur_len)
 {
 	int taille;
 
@@ -76,7 +76,7 @@ void	ft_print_floor(int floor, int total_floor, int *cur_len, int total_len)
 		ft_print_multiple(' ', (total_len - *cur_len) / 2);
 		ft_putchar('/');
 		if (floor == total_floor && idx > 2)
-			ft_print_door(floor, idx, cur_len, total_len);
+			ft_print_door(floor, idx, cur_len);
 		else
 			ft_print_multiple('*', *cur_len - 2);
 		ft_putchar('\\');
