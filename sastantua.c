@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 // Only for debug
-int		ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (0);
@@ -63,7 +63,6 @@ void	ft_print_floor(int floor, int total_floor, int *cur_len, int total_len)
 	ft_putchar('\n');
 	idx += 1;
 	*cur_len += 2;
-	printf("%d;", *cur_len);
     }
 }
 
