@@ -47,7 +47,7 @@ int	ft_len_base(int size)
 	return (len);
 }
 
-void	ft_print_floor(int floor, int *cur_len, int total_len)
+void	ft_print_floor(int floor, int total_floor, int *cur_len, int total_len)
 {
     int size;
     int idx;
@@ -78,7 +78,7 @@ void	sastantua(int size)
 	floor = 1;
 	while (floor <= size)
 	{
-	    ft_print_floor(floor, &cur_len, total_len);
+	    ft_print_floor(floor, size, &cur_len, total_len);
 	    floor++;
 	    cur_len += 4 + 2 * ((floor - 2) / 2);
 	}
