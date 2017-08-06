@@ -80,7 +80,7 @@ void	sastantua(int size)
 	{
 	    ft_print_floor(floor, &cur_len, total_len);
 	    floor++;
-	    cur_len += 3 + (floor / 2);
+	    cur_len += 4 + 2 * ((floor - 2) / 2);
 	}
 }
 
